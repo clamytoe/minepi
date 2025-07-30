@@ -1,0 +1,15 @@
+Screen {
+    background: #010d1f;
+    color: #00bfff;
+}
+
+#main-panel {
+    border: round;
+    padding: 1 2;
+    background: #021932;
+}
+
+Static {
+    border: round;
+    padding: 1;
+}
