@@ -1,0 +1,63 @@
+body {
+    font-family: 'Papyrus', 'Trebuchet MS', sans-serif;
+    background: url('../assets/parchment-bg.jpg') repeat;
+    color: #3c2f2f;
+    padding: 2em;
+    line-height: 1.6;
+}
+
+h1,
+h2 {
+    color: #5b3e19;
+    text-shadow: 1px 1px #c9b89c;
+}
+
+li.unlocked {
+    background: linear-gradient(to right, #f5e4c3, #e2d1af);
+    border-left: 5px solid #b38b53;
+    padding: 0.5em;
+    margin: 0.3em 0;
+    transition: transform 0.3s;
+}
+
+li.unlocked:hover {
+    transform: scale(1.03);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+
+    100% {
+        background-position: 200px 0;
+    }
+}
+
+li.unlocked.special {
+    background: linear-gradient(90deg, #fff 25%, #e9d8a6 50%, #fff 75%);
+    background-size: 400px 100%;
+    animation: shimmer 2s infinite;
+    border-left: 5px solid gold;
+}
+
+li.locked {
+    color: #7b7b7b;
+    background: repeating-linear-gradient(45deg,
+            #ccc,
+            #ccc 10px,
+            #bbb 10px,
+            #bbb 20px);
+    border-left: 5px solid #888;
+    padding: 0.5em;
+    margin: 0.3em 0;
+    font-style: italic;
+}
+
+.section {
+    border: 2px dashed #a68c62;
+    background-color: rgba(255, 248, 220, 0.8);
+    padding: 1em;
+    margin-bottom: 2em;
+    box-shadow: 0 4px 6px rgba(77, 52, 25, 0.4);
+}

@@ -1,0 +1,13 @@
+[
+    {
+        "text": "🌟 Welcome, Trainer! Your journey begins...",
+        "timestamp": "2025-07-27T18:00:00",
+        "unlocked": true
+    },
+    {
+        "text": "💡 Tip: Feed your Pixelmon berries, not cookies!",
+        "timestamp": "2025-07-25T17:00:00",
+        "unlock_at_minutes": 240,
+        "unlocked": false
+    }
+]

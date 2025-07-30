@@ -1,0 +1,39 @@
+name: minepi-server
+services:
+  mc-server:
+    container_name: cobblemon-server
+    environment:
+      ENABLE_AUTOPAUSE: "true"
+      ENABLE_ROLLING_LOGS: "true"
+      EULA: "TRUE"
+      GID: "1000"
+      ICON: server-icon.png
+      MEMORY: 6G
+      MODRINTH_FORCE_SYNCHRONIZE: "true"
+      MODRINTH_LOADER: fabric
+      MODRINTH_MODPACK: cobblemon-fabric
+      MODRINTH_OVERRIDES_EXCLUSIONS: |
+        mods/shulkerboxtooltip-*.jar
+      OVERRIDE_ICON: "true"
+      PROJECT_ID: 5FFgwNNP
+      TYPE: MODRINTH
+      UID: "1000"
+      VERSION: 1.21.1
+    image: itzg/minecraft-server:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 25565
+        published: "25565"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/clamytoe/minepi-server/data
+        target: /data
+        bind:
+          create_host_path: true
+networks:
+  default:
+    name: minepi-server_default
