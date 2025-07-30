@@ -128,3 +128,13 @@ This repo is a living spellbook—feel free to fork, star, and conjure up new fe
 
 Would you like me to push this into the repo as a PR, or format variants for parchment-style and matrix-mode themes? We can even embed the dashboard preview as an image or animation later. Let’s keep the magic flowing! 🪄📦
 ```
+
+## 🪄 Support the Project
+
+Help keep MinePi enchanting! Every click or contribution fuels future features, lore unlocks, and parental wizardry.
+
+- 🛒 **Recommended Gear**: [iRasptek Raspberry Pi 5 Bundle](https://www.amazon.com/dp/B0DSSQ8C53?tag=clamytoe-20) (Affiliate link)
+
+- 🌐 **GitHub Stars & Feedback**: Star this repo and suggest magical enhancements!
+
+- 🍄 **Contribute Mods & Lore**: PRs welcome—especially for Cobblemon server extras or parchment dashboard tweaks.
