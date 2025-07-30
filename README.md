@@ -14,7 +14,7 @@ Inspired by AI musings...
 | Power Supply       | 27W USB-C (5.1V/5A GaN)                |
 | OS                 | Raspberry Pi OS 64-bit (Lite or GUI)  |
 | Storage            | 256GB+ microSD or SSD via USB 3.0     |
-| Starter Kit        | [iRasptek Starter Kit](https://www.amazon.com/dp/B0DSSQ8C53?ref=ppx_yo2ov_dt_b_fed_asin_title)           |
+| Starter Kit        | Starter Kit: [iRasptek Raspberry Pi 5 Bundle](https://www.amazon.com/dp/B0DSSQ8C53?tag=clamytoe-20) *(Affiliate Link – helps support MinePi!)* |
 
 ---
 
