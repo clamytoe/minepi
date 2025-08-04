@@ -46,7 +46,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ```bash
 git clone https://github.com/clamytoe/minepi.git
-cd minepi
+cd minepi-server
 ```
 
 ### 4. Launch the Server
