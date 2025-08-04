@@ -114,3 +114,5 @@ ENV/
 
 # local system files
 scripts/*.txt
+scripts/suggestion.json
+scripts/suggestion.md
