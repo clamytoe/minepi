@@ -15,6 +15,8 @@ This guide helps you verify mod dependencies and troubleshoot common issues in M
 
 ### 📁 Default Mod Folder (Modrinth App)
 
+I use Windows WSL so adjust the paths to suit your needs.
+
 ```bash
 /mnt/c/Users/<your-username>/AppData/Roaming/ModrinthApp/profiles/<modpack-name>/mods
 ```
