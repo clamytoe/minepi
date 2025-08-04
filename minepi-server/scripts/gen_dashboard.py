@@ -1,6 +1,10 @@
 import json
 from datetime import datetime
 
+# Paths
+BASE_DIR = "/home/clamytoe/minecraft-server"
+DATA_DIR = f"{BASE_DIR}/data"
+
 
 def load_json(path):
     return json.load(open(path))
@@ -21,7 +25,7 @@ def render_dashboard(players, motds):
         html += f"<li>{state} {m['text']}</li>"
     html += "</ul></section>"
 
-    pi_status = load_json("../logs/pi_status.json")
+    pi_status = load_json(f"{BASE_DIR}/logs/pi_status.json")
 
     html += "<section><h2>🧠 Raspberry Pi Status</h2><ul>"
     html += f"<li>🌡️ CPU Temp: {pi_status['cpu_temp']}</li>"
@@ -30,10 +34,15 @@ def render_dashboard(players, motds):
     html += "</ul></section>"
 
     html += "</body></html>"
-    with open("../public/dashboard.html", "w") as f:
+    with open(f"{BASE_DIR}/public/dashboard.html", "w") as f:
         f.write(html)
 
 
-players = load_json("../logs/player_logins.json")
-motds = load_json("../logs/motd_archive.json")
-render_dashboard(players, motds)
+def main():
+    players = load_json(f"{BASE_DIR}/logs/player_logins.json")
+    motds = load_json(f"{BASE_DIR}/logs/motd_archive.json")
+    render_dashboard(players, motds)
+
+
+if __name__ == "__main__":
+    main()

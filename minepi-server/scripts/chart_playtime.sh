@@ -1,5 +1,8 @@
 #!/bin/bash
-LOG_FILE="../logs/player_logins.json"
+# Paths
+BASE_DIR="/home/clamytoe/minecraft-server"
+DATA_DIR="$BASE_DIR/data"
+LOG_FILE="$BASE_DIR/logs/player_logins.json"
 
 echo "📊 Playtime Report"
 echo "-------------------------"

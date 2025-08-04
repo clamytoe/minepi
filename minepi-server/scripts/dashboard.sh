@@ -9,9 +9,10 @@ glitch="\e[5m"
 divider="${glitch}${green}--===[*]===--${reset}"
 
 # Paths
-DATA_DIR="../data"
-LOG_FILE="../logs/player_logins.json"
-BACKUP_DIR="../backups"
+BASE_DIR="/home/clamytoe/minecraft-server"
+DATA_DIR="$BASE_DIR/data"
+LOG_FILE="$BASE_DIR/logs/player_logins.json"
+BACKUP_DIR="$BASE_DIR/backups"
 
 # Header
 echo -e "${green}${bold}🧬 Cobblemon Terminal Dashboard 🧬${reset}"
@@ -45,4 +46,4 @@ total_minutes=$(jq -r '. | select(.player=="Steve") | .timestamp' $LOG_FILE | wc
 echo -e "\n🎖️ Steve's Earn-A-Minute Count: ${bold}$total_minutes min${reset}"
 
 echo -e "$divider"
-echo -e "${green}🔄 Refresh with: watch -n 10 ./dashboard.sh${reset}"
+echo -e "${green}🔄 Refresh with: watch -n 10 ${BASE_DIR}/scripts/dashboard.sh${reset}"

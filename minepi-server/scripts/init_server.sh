@@ -2,9 +2,10 @@
 set -e
 
 # Paths
-DATA_DIR="../data"
-BACKUP_DIR="../backups"
-LOG_FILE="../logs/player_logins.json"
+BASE_DIR="/home/clamytoe/minecraft-server"
+DATA_DIR="$BASE_DIR/data"
+BACKUP_DIR="$BASE_DIR/backups"
+LOG_FILE="$BASE_DIR/logs/player_logins.json"
 PROPERTIES_FILE="$DATA_DIR/server.properties"
 
 # Create backup folder if missing
