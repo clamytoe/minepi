@@ -1,5 +1,4 @@
 import json
-from datetime import datetime
 
 # Paths
 BASE_DIR = "/home/clamytoe/minecraft-server"

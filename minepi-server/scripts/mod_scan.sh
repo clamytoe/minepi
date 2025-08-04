@@ -1,5 +1,5 @@
 #!/bin/bash
-MOD_DIR="../data/mods"
+MOD_DIR="/home/clamytoe/minecraft-server/data/mods"
 KNOWN_CLIENT_MODS=("shulkerboxtooltip" "notenoughanimations" "lambdynamiclights")
 
 echo "🔍 Checking for known client-only mods..."

@@ -1,5 +1,5 @@
 #!/bin/bash
-MOD_DIR="./data/mods"
+MOD_DIR="/home/clamytoe/minecraft-server/data/mods"
 CLIENT_MODS=("shulkerboxtooltip" "notenoughanimations" "lambdynamiclights")
 
 echo "Scanning for client-side mods..." > client_mods_report.txt

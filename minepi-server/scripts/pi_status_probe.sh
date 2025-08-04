@@ -1,5 +1,5 @@
 #!/bin/bash
-STATUS_FILE="../logs/pi_status.json"
+STATUS_FILE="/home/clamytoe/minecraft-server/logs/pi_status.json"
 
 echo "🧪 Gathering Pi stats..."
 
