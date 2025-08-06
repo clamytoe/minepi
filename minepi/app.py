@@ -4,43 +4,67 @@ app.py
 
 MinePi - Minecraft Server on Raspberry Pi
 """
+from rich.panel import Panel
+from rich.text import Text
 from textual.app import App, ComposeResult
-from textual.containers import Container, Horizontal
-from textual.widgets import Footer, Header, Static
+from textual.containers import Container, Horizontal, Vertical
+from textual.reactive import var
+from textual.widget import Widget
+from textual.widgets import Footer, Header, Label, Static
+
+
+class TitledPanel(Vertical):
+    def __init__(self, title: str, *children, **kwargs):
+        super().__init__(Label(title, classes="panel-title"), *children, **kwargs)
 
 
 class StardatePanel(Static):
-    def compose(self) -> ComposeResult:
+    def render(self) -> str:
         # You can replace this with uptime or custom stardate logic
-        return Static("🕒 Stardate 74001.1")
+        return "🕒 Stardate 74001.1"
 
 
 class MinecraftStats(Static):
-    def compose(self) -> ComposeResult:
-        return Static("👾 Players Online: 3\n📜 Lore Unlocks: 12")
+    def render(self) -> str:
+        return "👾 Players Online: 3\n📜 Lore Unlocks: 12"
 
 
 class PiVitals(Static):
-    def compose(self) -> ComposeResult:
-        return Static("💻 CPU: 18%\n🌡️ Temp: 45°C")
+    def render(self) -> str:
+        return "💻 CPU Usage: 18%\n🌡️ Temp: 45°C"
 
 
 class MessageTicker(Static):
-    def compose(self) -> ComposeResult:
-        return Static("🛰️ All systems nominal. Awaiting commands…")
+    def render(self) -> str:
+        return "🛰️ All systems nominal. Awaiting commands…"
 
 
 class MinePiTUI(App):
+    BINDINGS = [
+        ("q", "quit", "Quit"),
+    ]
     CSS_PATH = "lcars.css"
 
     def compose(self) -> ComposeResult:
-        yield Header()
         yield Container(
-            Horizontal(StardatePanel(), MinecraftStats(), PiVitals()), id="main-panel"
+            Container(Header(), id="header"),
+            # TitledPanel("Star Date", StardatePanel(), id="stardate-panel"),
+            TitledPanel(
+                "System Status",
+                Vertical(
+                    StardatePanel(), MinecraftStats(), PiVitals(), id="status-panels"
+                ),
+                id="system-status",
+            ),
+            Horizontal(Container(MessageTicker(), id="ticker"), id="content-area"),
+            Container(Footer(), id="footer"),
+            id="main-container",
         )
-        yield MessageTicker()
-        yield Footer()
+
+
+def main():
+    MinePiTUI().run()
 
 
 if __name__ == "__main__":
-    MinePiTUI().run()
+    main()
