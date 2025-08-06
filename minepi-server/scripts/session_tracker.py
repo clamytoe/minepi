@@ -243,6 +243,19 @@ def main(force=False, dry_run=False):
 
     with open(output_path, "w") as f:
         json.dump(logins, f, indent=2)
+
+    # Also write player_logins.json for charting
+    login_events = []
+    for name, data in logins.items():
+        for session in data.get("sessions", []):
+            login_time = session.get("login_time")
+            if login_time:
+                login_events.append({"player": name, "login_time": login_time})
+
+    login_output_path = f"{base_dir}/logs/player_logins.json"
+    with open(login_output_path, "w") as f:
+        json.dump(login_events, f, indent=2)
+
     if DEBUG:
         print(f"[SUCCESS] Session data written to {output_path}")
 
