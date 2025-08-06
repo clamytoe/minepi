@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Player Sessions</title>
+</head>
+
+<body>
+    <h1>Players</h1>
+    <ul>
+        {% for name, info in players.items() %}
+        <li>
+            <a href="/player/{{ name }}">
+                <img src="https://crafatar.com/avatars/{{ info.uuid }}?size=64&overlay" alt="{{ name }}">
+                {{ name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <p>Created by <a href="https://github.com/Clamytoe">Clamytoe</a></p>
+</body>
+
+</html>

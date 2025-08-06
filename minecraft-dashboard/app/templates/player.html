@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ name }}'s Sessions</title>
+</head>
+
+<body>
+    <h1>{{ name }}</h1>
+    <img src="https://crafatar.com/renders/body/{{ data.uuid }}?scale=6&overlay">
+    <h2>Summary</h2>
+    <table border="1">
+        <tr>
+            <th>Total Sessions</th>
+            <th>Total Playtime</th>
+            <th>Total Achievements</th>
+            <!-- <th>Achievements Earned</th> -->
+        </tr>
+        <tr>
+            <td>{{ data.sessions | length }}</td>
+            <td>{{ data.sessions | total_playtime }}</td>
+            <td>{{ data.sessions | total_achievements }}</td>
+            <!-- <td>
+                {% set total_seconds = data.sessions | map(attribute='session_duration') | map('tojson') | join(',') %}
+                {{ total_seconds }}
+            </td> -->
+        </tr>
+    </table>
+
+    <h2>All Achievements</h2>
+    <ul>
+        {% for session in data.sessions %}
+        {% for ach in session.achievements %}
+        <li>{{ ach.time }} – {{ ach.name }}</li>
+        {% endfor %}
+        {% endfor %}
+    </ul>
+
+    <h2>Timeline</h2>
+    <ul style="list-style: none;">
+        {% for session in data.sessions %}
+        <li style="margin-bottom: 1em;">
+            <div><strong>{{ session.login_time }}</strong> → {{ session.logout_time }}</div>
+            <div><em>{{ session.session_duration }}</em> at {{ session.spawn }}</div>
+            {% if session.achievements %}
+            <div>Achievements:
+                <ul>
+                    {% for ach in session.achievements %}
+                    <li>{{ ach.time }} - {{ ach.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <button onclick="toggleSessions()">Show Sessions</button>
+    <div id="sessions-content" style="display: none;">
+        <h2>Sessions</h2>
+        <ul>
+            {% for session in data.sessions %}
+            <li>
+                <strong>ID:</strong> {{ session.session_id }}<br>
+                <strong>Login:</strong> {{ session.login_time }}<br>
+                <strong>Logout:</strong> {{ session.logout_time }}<br>
+                <strong>Duration:</strong> {{ session.session_duration }}<br>
+                <strong>Spawn:</strong> {{ session.spawn }}<br>
+                <strong>Achievements:</strong>
+                <ul>
+                    {% for ach in session.achievements %}
+                    <li>{{ ach.time }} - {{ ach.name }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        function toggleSessions() {
+            const content = document.getElementById("sessions-content");
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+
+    <p><a href="/">Back</a></p>
+    <p>Created by <a href="https://github.com/Clamytoe">Clamytoe</a></p>
+</body>
+
+</html>
